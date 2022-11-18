@@ -5,4 +5,5 @@ const Button = ({ title, onClick }: IButtonProps) => {
   return <ButtonContainer onClick={onClick}>{title}</ButtonContainer>;
 };
 
+
 export default Button;
