@@ -9,13 +9,17 @@ export const ButtonContainer = styled.button`
 
     border: 1px solid #81259D;
     border-radius: 21px;
+    
+    &:disabled {
+        pointer-events:${(props)=>props.disabled?'none':null};
+        opacity: 0.5;
+        
+    }
 
     &:hover {
-        opacity: 0.6;
+        opacity: 0.8;
         cursor:pointer;
     }
-    disable {
-        opacity: 0.4
-        cursosr: not-allowed;
-    }
+
 `
+//colocado um styled para quando o botão estiver disabled

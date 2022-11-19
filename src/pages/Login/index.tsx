@@ -4,6 +4,7 @@ import Input from "../../components/Input";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
+
 import { Container, LoginContainer, Column, Spacing, Title } from "./styles";
 import { defaultValues, IFormLogin } from "./types";
 
@@ -17,6 +18,7 @@ const schema = yup
   })
   .required();
 
+
 const Login = () => {
   const {
     control,
@@ -27,6 +29,16 @@ const Login = () => {
     defaultValues,
     reValidateMode: "onChange",
   });
+
+  // Função para determinar se isValid é verdadeiro ou falso.
+  const isDisabled = () => {
+    if(isValid){
+      return false
+    } else {
+      return true
+    }
+  }
+
 
   return (
     <Container>
@@ -49,11 +61,12 @@ const Login = () => {
             errorMessage={errors?.password?.message}
           />
           <Spacing />
-          <Button title="Entrar"/>
+          <Button title="Entrar" disabled={isDisabled()} />
         </Column>
       </LoginContainer>
     </Container>
   );
 };
-
+// Chamando a função para determinar se o botão está ativo ou não no disabled={isDisabled()}
 export default Login;
+
